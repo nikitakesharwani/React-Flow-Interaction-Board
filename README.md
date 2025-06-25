@@ -15,18 +15,9 @@ This project is a frontend developer task that demonstrates the use of React Flo
 - React Flow
 - React Hooks
 
-## Installation
-
-```bash
-git clone https://github.com/your-username/react-flow-board.git
-cd react-flow-board
-npm install
-npm start
-```
-
 ## Usage
 
-- Launch the app
+- Launch the app using VS Code (npm start) or you can use [Click here to view the project on GitHub Pages](https://nikitakesharwani.github.io/React-Flow-Interaction-Board/)
 - Drag blocks from the sidebar to the canvas
 - Connect Block A ➝ Block B
 - Right-click any block to see "Hello World"
@@ -58,4 +49,4 @@ src/
 
 ## Deployment
 
-Deployed on GitHub Pages.
+[Click here to view the project on GitHub Pages](https://nikitakesharwani.github.io/React-Flow-Interaction-Board/)
