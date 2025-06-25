@@ -14,7 +14,7 @@ export function Canvas() {
     event.dataTransfer.dropEffect = "move";
   }, []);
 
-  // Handle drop: add a new node
+  // add a new node
   const onDrop = useCallback(
     (event) => {
       event.preventDefault();
@@ -37,7 +37,7 @@ export function Canvas() {
     [setNodes]
   );
 
-  // Handle right-click on a node
+  // right-click on a node
   const onNodeContextMenu = useCallback((event, node) => {
     event.preventDefault(); // Prevent default context menu
     setNodes((nds) =>
@@ -56,7 +56,6 @@ export function Canvas() {
       const sourceNode = nodes.find((n) => n.id === params.source);
       const targetNode = nodes.find((n) => n.id === params.target);
 
-      // Error handling: must have both nodes
       if (!sourceNode || !targetNode) {
         alert("Both source and target nodes must exist.");
         return;

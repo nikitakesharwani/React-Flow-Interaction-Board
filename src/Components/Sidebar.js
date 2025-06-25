@@ -20,7 +20,7 @@ export function Sidebar() {
         borderRadius: "50px",
         padding: "16px",
         overflowY: "auto",
-        margin: "50px 0 50px 50px", // add margin for spacing
+        margin: "50px 0 50px 50px",
       }}
     >
       <h4>Drag a block to the canvas:</h4>
