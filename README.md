@@ -17,7 +17,7 @@ This project is a frontend developer task that demonstrates the use of React Flo
 
 ## Usage
 
-- Launch the app using VS Code (npm start) or you can use [Click here to view the project on GitHub Pages](https://nikitakesharwani.github.io/React-Flow-Interaction-Board/)
+- Launch the app using VS Code (npm start) or you can use [Click here to view the project on GitHub Pages][(https://nikitakesharwani.github.io/React-Flow-Interaction-Board/)]
 - Drag blocks from the sidebar to the canvas
 - Connect Block A ➝ Block B
 - Right-click any block to see "Hello World"
