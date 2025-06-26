@@ -59,8 +59,9 @@ This project implements a **React Flow**-based interactive canvas with a custom 
 - **Drag-and-Drop Node Creation**:  
   The canvas accepts drops from the sidebar. When a block is dropped, a new node is created at the drop position with the correct label and type.
 
-- **Node Interaction**:  
-  -**Right-click** a node to show context menu and says `"hello world"`.
+- **Node Interaction**:
+
+  - **Right-click** a node to show context menu and says `"hello world"`.
 
 - **Edge Connection Logic**:
   - Only allows edges from **Block A** to **Block B**.
@@ -114,24 +115,4 @@ This project implements a **React Flow**-based interactive canvas with a custom 
 
 ---
 
-## App Images
-
-**1. Home Page**
-![full-snap](https://github.com/user-attachments/assets/d04e1b53-3d2b-42b3-9c5b-5efebdcb54fa)
-
-
-**2. Drag and Drop**
-![block-drag-and-drop](https://github.com/user-attachments/assets/6f926211-80e9-498b-b22e-be9b9769b909)
-
-
-**3. Sucess on Correct Linking A->B**
-![A-To-B-Success](https://github.com/user-attachments/assets/74909b05-79a3-4124-85af-eb555231a544)
-
-
-**4. Failure on Wrong Linkng B-> A**
-![B-To-A-Failure](https://github.com/user-attachments/assets/9ebdf989-c27a-4ece-a6cc-ea6bfe3ccb7d)
-
-
-**5. Right Click -> Hello World**
-![Hello-world-on-right-click](https://github.com/user-attachments/assets/35439b63-00d8-4ced-923e-3458883fc769)
-
+##

@@ -5,8 +5,15 @@ import { Sidebar } from "./Sidebar";
 
 export function Canvas() {
   const [nodes, setNodes] = useState([]);
-  const [edges, setEdges] = useState([]);
+  const [edges] = useState([]);
   const reactFlowWrapper = useRef(null);
+
+  // Context menu state
+  const [contextMenu, setContextMenu] = useState({
+    visible: false,
+    x: 0,
+    y: 0,
+  });
 
   // Allow drop
   const onDragOver = useCallback((event) => {
@@ -14,7 +21,7 @@ export function Canvas() {
     event.dataTransfer.dropEffect = "move";
   }, []);
 
-  // add a new node
+  // Handle drop: add a new node
   const onDrop = useCallback(
     (event) => {
       event.preventDefault();
@@ -37,53 +44,22 @@ export function Canvas() {
     [setNodes]
   );
 
-  // right-click on a node
+  // Show custom context menu on node right-click
   const onNodeContextMenu = useCallback((event, node) => {
-    event.preventDefault(); // Prevent default context menu
-    setNodes((nds) =>
-      nds.map((n) =>
-        n.id === node.id
-          ? { ...n, data: { ...n.data, label: "hello world" } }
-          : n
-      )
-    );
+    event.preventDefault();
+    setContextMenu({
+      visible: true,
+      x: event.clientX,
+      y: event.clientY,
+    });
   }, []);
 
-  // Allow only one edge from A to B, not B to A
-  const onConnect = useCallback(
-    (params) => {
-      // Find nodes by id
-      const sourceNode = nodes.find((n) => n.id === params.source);
-      const targetNode = nodes.find((n) => n.id === params.target);
+  // Hide context menu on canvas click
+  const onCanvasClick = () => {
+    if (contextMenu.visible) setContextMenu({ visible: false, x: 0, y: 0 });
+  };
 
-      if (!sourceNode || !targetNode) {
-        alert("Both source and target nodes must exist.");
-        return;
-      }
-
-      // Only allow edge from A to B (not B to A)
-      if (
-        sourceNode.data.label === "Block A" &&
-        targetNode.data.label === "Block B"
-      ) {
-        // Prevent duplicate edge
-        const exists = edges.some(
-          (e) => e.source === params.source && e.target === params.target
-        );
-        if (!exists) {
-          setEdges((eds) =>
-            eds.concat({ ...params, id: `${params.source}-${params.target}` })
-          );
-          alert("Success");
-        } else {
-          alert("Failed: connection only from A to B");
-        }
-      } else {
-        alert("Failed: connection only from A to B");
-      }
-    },
-    [nodes, edges]
-  );
+  // ...your onConnect and other logic...
 
   return (
     <div style={{ display: "flex", width: "100vw", height: "100vh" }}>
@@ -100,13 +76,33 @@ export function Canvas() {
         }}
         onDrop={onDrop}
         onDragOver={onDragOver}
+        onClick={onCanvasClick}
       >
         <ReactFlow
           nodes={nodes}
           edges={edges}
           onNodeContextMenu={onNodeContextMenu}
-          onConnect={onConnect}
+          // ...other props
         />
+        {contextMenu.visible && (
+          <div
+            style={{
+              position: "absolute",
+              top: contextMenu.y,
+              left: contextMenu.x,
+              background: "#fff",
+              border: "1px solid #ccc",
+              borderRadius: "6px",
+              padding: "12px 24px",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+              zIndex: 10,
+              pointerEvents: "auto",
+            }}
+            onClick={() => setContextMenu({ visible: false, x: 0, y: 0 })}
+          >
+            Hello World
+          </div>
+        )}
       </div>
     </div>
   );
