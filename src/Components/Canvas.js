@@ -5,7 +5,7 @@ import { Sidebar } from "./Sidebar";
 
 export function Canvas() {
   const [nodes, setNodes] = useState([]);
-  const [edges] = useState([]);
+  const [edges, setEdges] = useState([]);
   const reactFlowWrapper = useRef(null);
 
   // Context menu state
@@ -59,7 +59,42 @@ export function Canvas() {
     if (contextMenu.visible) setContextMenu({ visible: false, x: 0, y: 0 });
   };
 
-  // ...your onConnect and other logic...
+  // Allow only one edge from A to B, not B to A
+  const onConnect = useCallback(
+    (params) => {
+      // Find nodes by id
+      const sourceNode = nodes.find((n) => n.id === params.source);
+      const targetNode = nodes.find((n) => n.id === params.target);
+
+      // Error handling: must have both nodes
+      if (!sourceNode || !targetNode) {
+        alert("Both source and target nodes must exist.");
+        return;
+      }
+
+      // Only allow edge from A to B (not B to A)
+      if (
+        sourceNode.data.label === "Block A" &&
+        targetNode.data.label === "Block B"
+      ) {
+        // Prevent duplicate edge
+        const exists = edges.some(
+          (e) => e.source === params.source && e.target === params.target
+        );
+        if (!exists) {
+          setEdges((eds) =>
+            eds.concat({ ...params, id: `${params.source}-${params.target}` })
+          );
+          alert("Success");
+        } else {
+          alert("Edge from A to B already exists.");
+        }
+      } else {
+        alert("Failed: connection only from A to B");
+      }
+    },
+    [nodes, edges]
+  );
 
   return (
     <div style={{ display: "flex", width: "100vw", height: "100vh" }}>
@@ -82,7 +117,7 @@ export function Canvas() {
           nodes={nodes}
           edges={edges}
           onNodeContextMenu={onNodeContextMenu}
-          // ...other props
+          onConnect={onConnect}
         />
         {contextMenu.visible && (
           <div
