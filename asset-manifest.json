@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/React-Flow-Interaction-Board/static/css/main.2ee59da6.css",
-    "main.js": "/React-Flow-Interaction-Board/static/js/main.bc35c3b8.js",
+    "main.js": "/React-Flow-Interaction-Board/static/js/main.3ca1f9e4.js",
     "static/js/453.c94893d4.chunk.js": "/React-Flow-Interaction-Board/static/js/453.c94893d4.chunk.js",
     "index.html": "/React-Flow-Interaction-Board/index.html",
     "main.2ee59da6.css.map": "/React-Flow-Interaction-Board/static/css/main.2ee59da6.css.map",
-    "main.bc35c3b8.js.map": "/React-Flow-Interaction-Board/static/js/main.bc35c3b8.js.map",
+    "main.3ca1f9e4.js.map": "/React-Flow-Interaction-Board/static/js/main.3ca1f9e4.js.map",
     "453.c94893d4.chunk.js.map": "/React-Flow-Interaction-Board/static/js/453.c94893d4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2ee59da6.css",
-    "static/js/main.bc35c3b8.js"
+    "static/js/main.3ca1f9e4.js"
   ]
 }
