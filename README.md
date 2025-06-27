@@ -132,6 +132,7 @@ This project implements a **React Flow**-based interactive canvas with a custom 
 ![B-To-A-Failure](https://github.com/user-attachments/assets/9ebdf989-c27a-4ece-a6cc-ea6bfe3ccb7d)
 
 
-**5. Right Click -> Hello World**
-![Hello-world-on-right-click](https://github.com/user-attachments/assets/35439b63-00d8-4ced-923e-3458883fc769)
+**5. Context Menu -> Hello World**
+![Hello-world-context-menu](https://github.com/user-attachments/assets/bd14ba41-e182-4466-b8ad-3aae1c4f8bd1)
+
 
